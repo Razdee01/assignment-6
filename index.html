@@ -42,11 +42,11 @@
                 <button class="btn bg-[#FACC15] text-[#15803D] rounded-full">Plant a Tree</button>
             </div>
     </header>
-    <section class="grid grid-cols-2 pr-5 md:grid-cols-3 justify-center items-center bg-[#CFF0DC]">
-        <div>
+    <section class="grid grid-cols-3 pr-5 md:grid-cols-3 justify-center items-center bg-[#CFF0DC]">
+        <div class="col-span-1 ">
             <img src="./assets/hero-leaf1.png" alt="">
         </div>
-        <div class=" text-center md:space-y-4">
+        <div class=" text-center col-span-2 md:col-span-1 md:space-y-4">
             <h2 class="text-3xl font-bold">Plant a Tree, Grow a Future</h2>
             <p class="text-sm">Join our mission to plant 1 million trees and make the Earth greener for future
                 generations.</p>
@@ -87,21 +87,46 @@
         <section class="bg-[#CFF0DC] p-8">
             <h2 class="text-center text-2xl font-semibold pb-5">Our Impact</h2>
             <div class="flex  gap-2 md:justify-evenly">
-                <div class="bg-white px-6 py-4  md:px-25 md:py-8 rounded-md text-center">
+                <div class="bg-white px-4 py-4  md:px-25 md:py-8 rounded-md text-center">
                 <h3 class="text-[#15803D] text-2xl font-semibold">500k</h3>
                     <p class="text-sm">Trees Planted</p>
                 </div>
-                <div class="bg-white  px-6 py-4 md:px-20 md:py-8 rounded-md text-center">
+                <div class="bg-white  px-4 py-4 md:px-20 md:py-8 rounded-md text-center">
                     <h3 class="text-[#15803D] text-2xl font-semibold">120+</h3>
                     <p  class="text-sm">Communities Involved</p>
                 </div>
-                <div class="bg-white  px-6 py-4  md:px-20 md:py-8 rounded-md text-center">
+                <div class="bg-white  px-4 py-4  md:px-20 md:py-8 rounded-md text-center">
                     <h3 class="text-[#15803D] text-2xl font-semibold">30+</h3>
                     <p  class="text-sm">Countries Reached</p>
                  </div>
             </div>
         </section>
     </main>
+    <footer class="bg-[#166534]">
+        <div class="md:p-20 ">
+            <h2 class="text-center text-2xl text-white mb-4">Plant a Tree Today</h2>
+            <div class="flex justify-center">
+                <fieldset class="fieldset bg-[#15803D] rounded-box w-xs p-4 ">
+                    <input type="text" name="name" class="input font-light" placeholder="Your Name">
+                    <input type="email" class="input font-light" placeholder="Your Email Adress" />
+                   
+                    <select class="h-11 bg-white rounded-lg border-none">
+                        <option value="">Number of Trees</option>
+                        <option value="option1">One Tree</option>
+                        <option value="option2">Two Trees</option>
+                        <option value="option3">More Than Two Trees</option>     </select>
+
+                
+                    <button class="btn mt-4 bg-[#FACC15] text-[#15803D] rounded-full">Donate Now</button>
+                </fieldset>
+    
+
+            </div>
+         
+        </div>
+        <h3 class="text-center text-sm bg-[#14532D] text-white p-4">© 2025 Green Earth. All Rights Reserved.</h3>
+      
+    </footer>
 </body>
 
 </html>
