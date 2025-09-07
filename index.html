@@ -42,11 +42,11 @@
                 <button class="btn bg-[#FACC15] text-[#15803D] rounded-full">Plant a Tree</button>
             </div>
     </header>
-    <section class="grid grid-cols-3 pr-5 md:grid-cols-3 justify-center items-center bg-[#CFF0DC]">
-        <div class="col-span-1 ">
+    <section class="grid pr-5 md:grid-cols-3 justify-center items-center bg-[#CFF0DC] p-4 md:p-0">
+        <div class="hidden sm:block md:col-span-1 ">
             <img src="./assets/hero-leaf1.png" alt="">
         </div>
-        <div class=" text-center col-span-2 md:col-span-1 md:space-y-4">
+        <div class=" text-center md:col-span-1 md:space-y-4">
             <h2 class="text-3xl font-bold">Plant a Tree, Grow a Future</h2>
             <p class="text-sm">Join our mission to plant 1 million trees and make the Earth greener for future
                 generations.</p>
@@ -59,22 +59,24 @@
             <!-- Main Starts -->
     <main class="mt-10">
         <!-- Choose Your Treess -->
-       <section class="md:mb-20  pt-4">
+       <section class="md:mb-20  pt-4 bg-lime-100">
         <h2 class="text-center text-3xl font-semibold mb-4">Choose Your Trees</h2>
-        <div class=" w-11/12 mx-auto grid grid-cols-4 md:grid-cols-12">
+        <!-- Grid -->
+        <div class=" mx-auto grid grid-cols-4 md:grid-cols-12 gap-4">
             <div class="col-span-1 md:col-span-2">
                 <h2 class="text-2xl font-semibold mb-5">Categories</h2>
                 <!-- Categories -->
-                <ul id="catagories-list"  class="text-xl space-y-5 p-4 bg-lime-200">
+                <ul id="catagories-list"  class="text-xl space-y-5 p-4">
                   
                 </ul>
             </div>
             <!-- All Cards -->
-            <div class="col-span-3 md:col-span-9">
-
+            <div id="all-cards" class="col-span-3 md:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+               
+                        
             </div>
             <!-- Cart -->
-            <div class="col-span-1">
+            <div class=" md:col-span-2">
                 <h2>Your Cart</h2>
             </div>
         </div>
@@ -118,7 +120,7 @@
         </section>
     </main>
     <footer class="bg-[#166534]">
-        <div class="md:p-20 ">
+        <div class="p-5 md:p-20 ">
             <h2 class="text-center text-2xl text-white mb-4">Plant a Tree Today</h2>
             <div class="flex justify-center">
                 <fieldset class="fieldset bg-[#15803D] rounded-box w-xs p-4 ">
