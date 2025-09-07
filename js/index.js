@@ -23,6 +23,38 @@ const loadTreeCategorie=(id)=>{
     });
   
 }
+    // Modal
+    const loadCatDetail=(id)=>{
+      const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+      console.log(url);
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => displayCatDetails(data.plants));
+      
+    }
+    const displayCatDetails=(details)=>{
+      const detailsBox = document.getElementById("details-container");
+      detailsBox.innerHTML = `
+      <div class="">
+      <h3 onclick='loadCatDetail(${details.id})'  class="text-xl font-semibold p-3 ">${details.name}</h3>
+      <div class="mb-2 p-4">
+          <img class=" md:h-48 w-full rounded-md" src=${details.image} alt="">
+      </div>
+      <div class=" md:mb-2">
+          <span class=" p-3"> Category: ${details.category}</span><br>
+          <span class="p-3"><span>Price :$</span>${details.price}</span>
+      </div>
+      <div class="mb-2">
+      
+          <p class="text-sm font-light p-3 md:h-30">${details.description}</p>
+      </div>
+      
+   
+  </div>
+      `;
+      document.getElementById("my_modal_5").showModal();
+    }
+
 const displayLoadTreeCategorie=(TreeCategories)=>{
   const treeCat=document.getElementById("all-cards")
     treeCat.innerHTML=""
@@ -33,7 +65,7 @@ const displayLoadTreeCategorie=(TreeCategories)=>{
           <img class=" md:h-48 w-full rounded-md" src=${TreeCategorie.image} alt="">
       </div>
       <div class="mb-2">
-          <h3 class="text-xl font-semibold mb-3">${TreeCategorie.name}</h3>
+          <h3 onclick='loadCatDetail(${TreeCategorie.id})'  class="text-xl font-semibold mb-3 ">${TreeCategorie.name}</h3>
           <p class="text-sm font-light md:h-30">${TreeCategorie.description}</p>
       </div>
       <div class="flex justify-between items-center md:mb-2">
@@ -77,7 +109,7 @@ const displayAllCat=(everyCats)=>{
         <img class=" md:h-48 w-full rounded-md" src=${everyCat.image} alt="">
     </div>
     <div class="mb-2">
-        <h3 class="text-xl font-semibold mb-3">${everyCat.name}</h3>
+        <h3 onclick='loadCatDetail(${everyCat.id})'  class="text-xl font-semibold mb-3 ">${everyCat.name}</h3>
         <p class="text-sm font-light md:h-30">${everyCat.description}</p>
     </div>
     <div class="flex justify-between items-center md:mb-2">
