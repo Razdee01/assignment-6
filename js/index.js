@@ -81,7 +81,7 @@ const displayLoadTreeCategorie = (TreeCategories) => {
         </div>
         <div class="flex justify-between items-center md:mb-2">
           <span class="bg-[#DCFCE7] rounded-full p-3">${TreeCategorie.category}</span>
-          <span class="ml-50 md:ml-20">$</span><span class="mr-5">${TreeCategorie.price}</span>
+          <span class="ml-50 md:ml-20">$</span><span class="mr-8">${TreeCategorie.price}</span>
         </div>
         <div class="text-center ">
           <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Card</button>
@@ -127,7 +127,7 @@ const displayAllCat = (everyCats) => {
     </div>
     <div class="flex justify-between items-center md:mb-2">
         <span class="bg-[#DCFCE7] rounded-full p-3">${everyCat.category}</span>
-        <span class="ml-50 md:ml-20">$</span><span class="mr-5">${everyCat.price}</span>
+        <span class="ml-50 md:ml-20">$</span><span class="mr-8">${everyCat.price}</span>
     </div>
     <div class="text-center ">
         <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Card</button>
