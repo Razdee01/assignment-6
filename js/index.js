@@ -10,8 +10,20 @@ const removeActive=()=>{
     }
   
 }
+// ------Loading-----
+const manageSpiner=(status)=>{
+  if(status==true){
+    document.getElementById("spinner").classList.remove('hidden')
+    document.getElementById("all-cards").classList.add('hidden')
+  }else{
+    document.getElementById("all-cards").classList.remove("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+  }
+}
+
 // onclick
 const loadTreeCategorie=(id)=>{
+  manageSpiner(true);
   const url=`https://openapi.programming-hero.com/api/category/${id}`
   fetch(url)
     .then((res) => res.json())
@@ -20,18 +32,22 @@ const loadTreeCategorie=(id)=>{
       const clickCat = document.getElementById(`cat-${id}`);
       clickCat.classList.add("active")
       displayLoadTreeCategorie(data.plants);
+     
     });
+  
   
 }
     // Modal
     const loadCatDetail=(id)=>{
+    
       const url = `https://openapi.programming-hero.com/api/plant/${id}`;
       console.log(url);
       fetch(url)
         .then((res) => res.json())
         .then((data) => displayCatDetails(data.plants));
-      
+       
     }
+    
     const displayCatDetails=(details)=>{
       const detailsBox = document.getElementById("details-container");
       detailsBox.innerHTML = `
@@ -40,22 +56,24 @@ const loadTreeCategorie=(id)=>{
       <div class="mb-2 p-4">
           <img class=" md:h-48 w-full rounded-md" src=${details.image} alt="">
       </div>
-      <div class=" md:mb-2">
-          <span class=" p-3"> Category: ${details.category}</span><br>
-          <span class="p-3"><span>Price :$</span>${details.price}</span>
+      <div class=" md:mb-1">
+          <span class=" p-3"> <span class="font-semibold">Category:</span>${details.category}</span><br>
+          <span class="p-3"><span><span class="font-semibold">Price:</span>$</span>${details.price}</span>
       </div>
       <div class="mb-2">
       
-          <p class="text-sm font-light p-3 md:h-30">${details.description}</p>
+          <p class="text-sm font-light p-3 md:h-30 "><span class="font-semibold">Description:</span>${details.description}</p>
       </div>
       
    
   </div>
       `;
       document.getElementById("my_modal_5").showModal();
+    
     }
 
 const displayLoadTreeCategorie=(TreeCategories)=>{
+  
   const treeCat=document.getElementById("all-cards")
     treeCat.innerHTML=""
     for(let TreeCategorie of TreeCategories){
@@ -78,6 +96,7 @@ const displayLoadTreeCategorie=(TreeCategories)=>{
   </div>`;
   treeCat.append(treeCatDiv)
     }
+    manageSpiner(false);
 }
 
 displayCategories = (categories) => {
@@ -94,9 +113,11 @@ displayCategories = (categories) => {
   }
 };
 const allCategories=()=>{
+  manageSpiner(true)
   fetch("https://openapi.programming-hero.com/api/plants")
   .then(res=>res.json())
   .then(data=>displayAllCat(data.plants))
+  
 }
 const displayAllCat=(everyCats)=>{
   const allCat=document.getElementById("all-cards")
@@ -123,6 +144,7 @@ const displayAllCat=(everyCats)=>{
     `;
     allCat.append(allCatdivs);
   }
+  manageSpiner(false);
 }
 allCategories()
 loadCategories();
