@@ -78,22 +78,23 @@ const displayLoadTreeCategorie=(TreeCategories)=>{
     treeCat.innerHTML=""
     for(let TreeCategorie of TreeCategories){
       const treeCatDiv=document.createElement("div")
-      treeCatDiv.innerHTML = `   <div class="p-4 shadow-lg bg-white h-full">
-      <div class="mb-2 p-4">
+      treeCatDiv.innerHTML = `  
+       <div class="p-4 shadow-lg bg-white h-full">
+        <div class="mb-2 p-4">
           <img class=" md:h-48 w-full rounded-md" src=${TreeCategorie.image} alt="">
-      </div>
-      <div class="mb-2">
+        </div>
+        <div class="mb-2">
           <h3 onclick='loadCatDetail(${TreeCategorie.id})'  class="text-xl font-semibold mb-3 ">${TreeCategorie.name}</h3>
           <p class="text-sm font-light md:h-30">${TreeCategorie.description}</p>
-      </div>
-      <div class="flex justify-between items-center md:mb-2">
+        </div>
+        <div class="flex justify-between items-center md:mb-2">
           <span class="bg-[#DCFCE7] rounded-full p-3">${TreeCategorie.category}</span>
-          <span><span>$</span>${TreeCategorie.price}</span>
-      </div>
-      <div class="text-center ">
-          <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full">Add To Card</button>
-      </div>
-  </div>`;
+          <span class="md:ml-30">$</span><span>${TreeCategorie.price}</span>
+        </div>
+        <div class="text-center ">
+          <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Card</button>
+        </div>
+       </div>`;
   treeCat.append(treeCatDiv)
     }
     manageSpiner(false);
@@ -135,10 +136,10 @@ const displayAllCat=(everyCats)=>{
     </div>
     <div class="flex justify-between items-center md:mb-2">
         <span class="bg-[#DCFCE7] rounded-full p-3">${everyCat.category}</span>
-        <span><span>$</span>${everyCat.price}</span>
+        <span class="md:ml-30">$</span><span>${everyCat.price}</span>
     </div>
     <div class="text-center ">
-        <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full">Add To Card</button>
+        <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Card</button>
     </div>
 </div>
     `;
@@ -146,5 +147,48 @@ const displayAllCat=(everyCats)=>{
   }
   manageSpiner(false);
 }
+// -------------Add to Cart-------------//
+cartTotal=0
+document.getElementById("all-cards").addEventListener("click", function(e){
+  if (e.target.className.includes("add-to-cart")) {
+    const addToCart = e.target;
+    const heading =
+      addToCart.parentNode.parentNode.children[1].children[0].innerText;
+    const price =
+      addToCart.parentNode.parentNode.children[2].children[2].innerText;
+
+
+    alert(`${heading} has been added to the cart`);
+    const cartContainer = document.getElementById("cart-container");
+
+    const cartDiv = document.createElement("div");
+    cartDiv.innerHTML = `
+    <div class="flex justify-between items-center bg-white w-full rounded-md  p-4">
+      <div>
+          <h3 class="font-medium text-xl">${heading}</h3>
+          <p class="text-sm">Price :${price}</p>
+      </div>
+      <!-- cross button -->
+      <div>
+          <button class="btn bg-white border-none">❌</button>
+      </div>
+    </div>
+    `;
+    cartContainer.append(cartDiv);
+    // ----Total----//
+    cartTotal = cartTotal + Number(price);
+    document.getElementById("cart-total").innerText = `Total: $${cartTotal}`;
+  }
+});
+
+
+
+
+
+
+
+
+
+
 allCategories()
 loadCategories();
