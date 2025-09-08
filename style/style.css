@@ -7,4 +7,6 @@
     background: rgb(58, 109, 7);
     color: white;
 }
-
+*{
+    overflow-x: hidden;
+}
