@@ -126,7 +126,7 @@ const displayAllCat = (everyCats) => {
         <h3 onclick='loadCatDetail(${everyCat.id})'  class="text-xl font-semibold mb-3 ">${everyCat.name}</h3>
         <p class="text-sm font-light md:h-30">${everyCat.description}</p>
     </div>
-    <div class="flex  md:justify-between items-center md:mb-2">
+    <div class="flex justify-between items-center md:mb-2">
         <span class="bg-[#DCFCE7] rounded-full p-3">${everyCat.category}</span>
         <span class="md:pl-20">$</span>
         <span class="">${everyCat.price}</span>
@@ -136,6 +136,7 @@ const displayAllCat = (everyCats) => {
     </div>
 </div>
     `;
+    
     allCat.append(allCatdivs);
   }
   manageSpiner(false);
