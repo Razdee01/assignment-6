@@ -80,11 +80,12 @@ const displayLoadTreeCategorie = (TreeCategories) => {
           <p class="text-sm font-light md:h-30">${TreeCategorie.description}</p>
         </div>
         <div class="flex justify-between items-center md:mb-2">
-          <span class="bg-[#DCFCE7] rounded-full p-3">${TreeCategorie.category}</span>
-          <span class="pl-50 md:pl-20">$</span><span class="pr-8">${TreeCategorie.price}</span>
+          <span class="bg-[#DCFCE7] rounded-full px-3 py-1">${TreeCategorie.category}</span>
+          <span class=" md:pl-20">$</span>
+          <span class="">${TreeCategorie.price}</span>
         </div>
         <div class="text-center ">
-          <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Card</button>
+          <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Cart</button>
         </div>
        </div>`;
     treeCat.append(treeCatDiv);
@@ -125,12 +126,13 @@ const displayAllCat = (everyCats) => {
         <h3 onclick='loadCatDetail(${everyCat.id})'  class="text-xl font-semibold mb-3 ">${everyCat.name}</h3>
         <p class="text-sm font-light md:h-30">${everyCat.description}</p>
     </div>
-    <div class="flex justify-between items-center md:mb-2">
+    <div class="flex  md:justify-between items-center md:mb-2">
         <span class="bg-[#DCFCE7] rounded-full p-3">${everyCat.category}</span>
-        <span class="pl-50 md:pl-20">$</span><span class="pr-8">${everyCat.price}</span>
+        <span class="md:pl-20">$</span>
+        <span class="">${everyCat.price}</span>
     </div>
     <div class="text-center ">
-        <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Card</button>
+        <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Cart</button>
     </div>
 </div>
     `;
