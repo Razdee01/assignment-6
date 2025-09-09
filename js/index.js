@@ -81,8 +81,7 @@ const displayLoadTreeCategorie = (TreeCategories) => {
         </div>
         <div class="flex justify-between items-center md:mb-2">
           <span class="bg-[#DCFCE7] rounded-full px-3 py-1">${TreeCategorie.category}</span>
-          <span class=" md:pl-20">$</span>
-          <span class="">${TreeCategorie.price}</span>
+          <span class="font-medium">$${TreeCategorie.price}</span>
         </div>
         <div class="text-center ">
           <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Cart</button>
@@ -128,15 +127,15 @@ const displayAllCat = (everyCats) => {
     </div>
     <div class="flex justify-between items-center md:mb-2">
         <span class="bg-[#DCFCE7] rounded-full p-3">${everyCat.category}</span>
-        <span class="md:pl-20">$</span>
-        <span class="">${everyCat.price}</span>
+       
+        <span class="font-medium">$${everyCat.price}</span>
     </div>
     <div class="text-center ">
         <button class="btn bg-[#FACC15] text-[#15803D] rounded-full  w-full add-to-cart">Add To Cart</button>
     </div>
 </div>
     `;
-    
+
     allCat.append(allCatdivs);
   }
   manageSpiner(false);
@@ -146,10 +145,10 @@ cartTotal = 0;
 document.getElementById("all-cards").addEventListener("click", function (e) {
   if (e.target.className.includes("add-to-cart")) {
     const addToCart = e.target;
-    const heading =
-      addToCart.parentNode.parentNode.children[1].children[0].innerText;
-    const price =
-      addToCart.parentNode.parentNode.children[2].children[2].innerText;
+    const heading = addToCart.parentNode.parentNode.children[1].children[0].innerText;
+    const priceText =addToCart.parentNode.parentNode.children[2].children[1].innerText;
+
+    const price = priceText.replace("$", "");
 
     alert(`${heading} has been added to the cart`);
     const cartContainer = document.getElementById("cart-container");
@@ -176,19 +175,17 @@ document.getElementById("all-cards").addEventListener("click", function (e) {
 });
 // ---Removal Functionality---//
 
-  document.getElementById("cart-container").addEventListener("click", function (e){
+document
+  .getElementById("cart-container")
+  .addEventListener("click", function (e) {
     if (e.target.className.includes("cross-btn")) {
-      const cross = e.target.parentNode.parentNode; 
-      cross.remove(); 
-      const price =cross.querySelector(".item-price").innerText
+      const cross = e.target.parentNode.parentNode;
+      cross.remove();
+      const price = cross.querySelector(".item-price").innerText;
       cartTotal = cartTotal - Number(price);
       document.getElementById("cart-total").innerText = `Total: $${cartTotal}`;
-      
     }
-  })
+  });
 
- 
-  
-    
 allCategories();
 loadCategories();
